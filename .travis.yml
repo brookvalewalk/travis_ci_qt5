@@ -1,6 +1,20 @@
-language: cpp
+language: generic
 compiler: gcc
-dist: trusty
+dist: bionic
+
+
+addons:
+    apt:
+        packages:
+            - libxkbcommon-x11-0
+            - libgl1-mesa-dev
+
+services: 
+    - xvfb
+
+env:
+    - QT_CI_PACKAGES=qt.qt5.5140.gcc_64,qt.qt5.5140.qtwebengine PATH="$TRAVIS_BUILD_DIR/Qt/5.14.0/gcc_64/bin:${PATH}"
+
 
 install:
   # Qt5
@@ -19,6 +33,10 @@ services:
 #  - sleep 3 # give xvfb some time to start
 
 script:
-  - qmake -qt=qt5
+  - git clone https://github.com/benlau/qtci.git
+  - source qtci/path.env
+  - install-qt 5.14.0
+  - qmake --version
+  - qmake
   - make
   - ./travis_ci_qt5
