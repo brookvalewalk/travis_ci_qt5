@@ -37,6 +37,6 @@ script:
   - source qtci/path.env
   - install-qt 5.13.2
   - qmake --version
-  - qmake -qt=qt5
+  - qmake
   - make
   - ./travis_ci_qt5
