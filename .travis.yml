@@ -35,7 +35,7 @@ services:
 script:
   - git clone https://github.com/benlau/qtci.git
   - source qtci/path.env
-  - install-qt 5.13.2
+  - install-qt 5.14
   - qmake --version
   - qmake
   - make
