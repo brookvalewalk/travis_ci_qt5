@@ -1,3 +1,4 @@
+sudo: require
 language: generic
 compiler: gcc
 dist: bionic
@@ -15,6 +16,9 @@ services:
 env:
     - QT_CI_PACKAGES=qt.qt5.5140.gcc_64,qt.qt5.5140.qtwebengine PATH="$TRAVIS_BUILD_DIR/Qt/5.14.0/gcc_64/bin:${PATH}"
 
+before_install:
+  # Codecov
+  - sudo pip install codecov
 
 install:
   # Qt5
