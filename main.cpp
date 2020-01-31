@@ -2,7 +2,8 @@
 #include <QDebug>
 
 std::string get_helloworld() noexcept {
-  return "HelloWorld";
+  
+  return "HelloWorld!";
 }
 
 int main()
